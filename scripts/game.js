@@ -101,18 +101,25 @@ const words = [
   "backpack"
 ];
 
+const letters = [];
+
 const randomWord = words[Math.floor(Math.random()*words.length)];
 console.log(randomWord);
 
-
-const wordLength = randomWord.length;
-var answer="";
-
-for( var i=0 ; i<wordLength; i++){
-  answer += " __ "
+for(char of randomWord){
+  letters.push(char);
 }
 
-document.getElementById("answer-section").innerHTML = answer;
+
+var dashes = [];
+
+for( var i=0 ; i<randomWord.length; i++){
+  dashes.push(" __ ")
+}
+
+var answerSection = document.getElementById("answer-section");
+
+answerSection.innerHTML = dashes.join(" ");
 
 
 
