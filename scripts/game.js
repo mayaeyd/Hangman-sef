@@ -102,8 +102,17 @@ const words = [
 ];
 
 const randomWord = words[Math.floor(Math.random()*words.length)];
-
 console.log(randomWord);
+
+
+const wordLength = randomWord.length;
+var answer="";
+
+for( var i=0 ; i<wordLength; i++){
+  answer += " __ "
+}
+
+document.getElementById("answer-section").innerHTML = answer;
 
 
 
