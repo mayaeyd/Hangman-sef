@@ -39,3 +39,7 @@
   left: 253px;
   top: 216px;
 }
+
+.hidden{
+  display: none;
+}
