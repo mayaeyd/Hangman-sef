@@ -35,13 +35,17 @@ document.addEventListener("keypress",(e)=>{
                     document.querySelector(".right-leg").classList.remove("hidden");
                     break;
             }
-        if(mistakes === 6){
-            window.location.href="./../gameover.html";
-        }
+        if(mistakes === 6) window.location.href="./../lose.html";
+        
     }
             
 
-    answerSection.innerHTML = dashes.join(" ")
+    answerSection.innerHTML = dashes.join(" ");
+    console.log(dashes);
+    
+
+    if(!dashes.includes(' __ ')) window.location.href="./../win.html";
+
     pressedKey=""
 });
 
