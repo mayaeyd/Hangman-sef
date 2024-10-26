@@ -50,4 +50,53 @@ document.addEventListener("keypress",(e)=>{
 });
 
 
+document.addEventListener("click",(e)=>{
+    pressedKey = e.target.innerHTML.toLowerCase();
+    console.log(pressedKey);
 
+    checkGuess(pressedKey);
+});
+
+function checkGuess(letter){
+    var isCorrectGuess = false;
+
+    for(let i=0; i<randomWord.length; i++){
+        if(randomWord[i] === letter){
+            dashes[i] = letter;
+            isCorrectGuess = true;
+        }
+    }
+        
+    if(!isCorrectGuess){
+        mistakes +=1;
+            switch(mistakes){
+                case 1:
+                    document.querySelector(".head").classList.remove("hidden");
+                    break;
+                case 2:
+                    document.querySelector(".body").classList.remove("hidden");
+                    break;
+                case 3:
+                    document.querySelector(".left-hand").classList.remove("hidden");
+                    break;
+                case 4:
+                    document.querySelector(".right-hand").classList.remove("hidden");
+                    break;
+                case 5:
+                    document.querySelector(".left-leg").classList.remove("hidden");
+                    break;
+                case 6:
+                    document.querySelector(".right-leg").classList.remove("hidden");
+                    break;
+            }
+        if(mistakes === 6) window.location.href="./../lose.html";
+        
+    }
+            
+
+    answerSection.innerHTML = dashes.join(" ");
+    
+    if(!dashes.includes(' __ ')) window.location.href="./../win.html";
+
+    pressedKey=""
+}
